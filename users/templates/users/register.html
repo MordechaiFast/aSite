@@ -4,7 +4,7 @@
 
 <form method="post">
     {% csrf_token %}
-    {{form}}
+    {{form}} <!-- Can't be form.as_p, because that would make email a required field. -->
     <input type="submit" value="Register">
 </form>
 
