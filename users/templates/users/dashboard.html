@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Hello, {{user.username|default:'Guset' }}!
+Hello, {{user.username|default:'Guest' }}!
+{% if user.is_authenticated %}
+    {% for file in files %}
+        <h2>{{ file.title }}</h2>
+        {{ file.content }}
+    {% endfor %}
+    <br><br>
+{% endif %}
 
 <div>
     {% if user.is_authenticated %}
